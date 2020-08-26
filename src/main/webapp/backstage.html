@@ -1,6 +1,4 @@
-<%
-    String path = request.getContextPath();
-%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -49,21 +47,21 @@
                     <a class="">所有数据</a>
                     <dl class="layui-nav-child">
                         <dd>
-                            <a href="#" data-url="<%=path%>/bookList.jsp" data-title="书籍信息" data-id="11"
+                            <a href="#" data-url="/bookList.jsp" data-title="书籍信息" data-id="11"
                                class="site-demo-active"
                                data-type="tabAdd">书籍信息</a>
                         </dd>
                         <dd>
-                            <a href="#" data-url="<%=path%>/userList.jsp" data-title="用户信息" data-id="22"
+                            <a href="#" data-url="/userList.jsp" data-title="用户信息" data-id="22"
                                class="site-demo-active"
                                data-type="tabAdd">用户信息</a>
                         </dd>
                         <dd>
-                            <a href="#" data-url="<%=path%>/error.jsp" data-title="章节信息" data-id="33" class="site-demo-active"
+                            <a href="#" data-url="/error.jsp" data-title="章节信息" data-id="33" class="site-demo-active"
                                data-type="tabAdd">章节信息</a>
                         </dd>
                         <dd>
-                            <a href="#" data-url="<%=path%>/commentList.jsp" data-title="评论信息" data-id="44" class="site-demo-active"
+                            <a href="#" data-url="/commentList.jsp" data-title="评论信息" data-id="44" class="site-demo-active"
                                data-type="tabAdd">评论信息</a>
                         </dd>
                     </dl>
@@ -102,9 +100,9 @@
     </div>
 </div>
 </body>
-<script src="<%=path%>/statics/js/jquery-1.12.4.min.js"></script>
-<link rel="stylesheet" href="<%=path%>/statics/layui/css/layui.css"/>
-<script src="<%=path%>/statics/layui/layui.js"></script>
+<script src="/statics/js/jquery-1.12.4.min.js"></script>
+<link rel="stylesheet" href="/statics/layui/css/layui.css"/>
+<script src="/statics/layui/layui.js"></script>
 <script>
     //tab切换
     layui.use('element', function () {
@@ -117,7 +115,7 @@
                 //新增一个Tab项
                 element.tabAdd('demo', {
                     title: name,
-                    content: '<iframe scrolling="auto" frameborder="0" src="<%=path%>' + url + '" style="width:100%;height:99%;"></iframe>',
+                    content: '<iframe scrolling="auto" frameborder="0" src="' + url + '" style="width:100%;height:99%;"></iframe>',
                     id: id //规定好的id
                 });
                 FrameWH();  //计算ifram层的大小
