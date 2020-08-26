@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zch.dao.SelectDao">
+
+    <resultMap type="com.zch.entity.Select" id="SelectMap">
+        <result property="sid" column="sid" jdbcType="INTEGER"/>
+        <result property="scontent" column="scontent" jdbcType="VARCHAR"/>
+        <result property="sdate" column="sdate" jdbcType="TIMESTAMP"/>
+        <result property="bid" column="bid" jdbcType="INTEGER"/>
+        <result property="stitle" column="stitle" jdbcType="VARCHAR"/>
+        <result property="schapter" column="schapter" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="findByChapterId" resultType="Select">
+        select s.stitle,s.bid,s.schapter from `select` s,book b where b.bid=s.bid and b.bid=#{bid} ORDER BY s.schapter asc
+    </select>
+    
+    <select id="findSeArticleById" resultMap="SelectMap">
+        SELECT s.stitle,s.scontent,u.unickname,b.bpath,s.sdate from `select` s,user u ,book b where b.bid=s.bid and u.uid=b.uid  and b.bid=#{bid} ORDER BY schapter
+    </select>
+
+</mapper>

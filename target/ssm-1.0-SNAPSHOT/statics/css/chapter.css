@@ -1,0 +1,234 @@
+body{
+    width: 100%;
+    height: 100%;
+}
+
+.comment_list {
+    padding-top: 40px;
+    margin: 0 auto;
+}
+
+.comment_details {
+    float: left;
+}
+
+.comment_content {
+    margin-top: 7px;
+    font-size: 16px;
+    width:80%;
+    margin-left:60px;
+    word-break:break-all;
+    font-family: 宋体;
+}
+
+.comment_add_or_last {
+    margin: 0 auto;
+    clear: both;
+    width: 600px;
+    height: 40px;
+    background: #F0F0F0;
+    text-align: center;
+    line-height: 40px;
+}
+
+.imgdiv {
+    float: left;
+
+}
+
+.imgcss {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.comment_name {
+    margin-left: 10px;
+    color: #3D9EEA;
+    font-size: 15px;
+    font-weight: bolder;
+    margin-right: 20px;
+}
+
+.layui-icon-praise {
+    margin-left: 20px;
+    font-size: 10px;
+    color: grey;
+    margin-right: 70px;
+}
+
+.layui-icon-tread{
+    margin-left: 10px;
+    color: gray;
+}
+
+
+.comment_content .layui-icon.layui-icon-praise,.layui-icon.layui-icon-tread{
+    position: absolute;
+    right: 10px;
+}
+
+.del {
+    margin-left: 55px;
+}
+
+#section .books {
+    width: 65%;
+    position: relative;
+    padding-bottom: 100px;
+}
+
+#section .books ul li:nth-child(2) h2 {
+    margin-bottom: 10px;
+}
+
+#section .books ul li:first-child img {
+    width: 150px;
+    height: 200px;
+    margin-top: 20px;
+    margin-left: 20px;
+    position: relative;
+}
+
+#section .books ul li:nth-child(2) .author{
+    font-family: 宋体;
+}
+
+#section .books ul li:nth-child(2) .type {
+    display: inline-block;
+    padding: 3px 8px 3px 8px;
+    line-height: 20px;
+    height: 20px;
+    border-radius: 10px;
+    font-family: 宋体;
+    border: 1px solid blue;
+    color: blue;
+    margin-right: 10px;
+}
+
+#section .books ul li:nth-child(2) .vip {
+    display: inline-block;
+    padding: 3px 8px 3px 8px;
+    line-height: 20px;
+    height: 20px;
+    border-radius: 10px;
+    font-family: 宋体;
+    border: 1px solid red;
+    color: red;
+    margin-right: 10px;
+}
+
+#section .books ul li:nth-child(2) .free {
+    display: inline-block;
+    padding: 3px 8px 3px 8px;
+    line-height: 20px;
+    height: 20px;
+    border-radius: 10px;
+    font-family: 宋体;
+    border: 1px solid green;
+    color: green;
+    margin-right: 10px;
+}
+
+#section .books ul li:nth-child(2) .load {
+     display: inline-block;
+     padding: 3px 8px 3px 8px;
+     line-height: 20px;
+     height: 20px;
+     border-radius: 10px;
+     font-family: 宋体;
+     border: 1px solid black;
+     margin-right: 10px;
+ }
+
+#section .books ul li:nth-child(2) .end {
+    display: inline-block;
+    padding: 3px 8px 3px 8px;
+    line-height: 20px;
+    height: 20px;
+    border-radius: 10px;
+    font-family: 宋体;
+    color: #00FFFF;
+    border: 1px solid #00FFFF;
+    margin-right: 10px;
+}
+
+#section .books ul li:nth-child(2) .sign {
+    display: inline-block;
+    padding: 3px 8px 3px 8px;
+    line-height: 20px;
+    height: 20px;
+    border-radius: 10px;
+    font-family: 宋体;
+    color: #c9cba3;
+    border: 1px solid #c9cba3;
+    margin-right: 10px;
+}
+
+#section .books ul li:nth-child(2) p {
+    width: 490px;
+    text-indent: 2em;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-family: 宋体;
+    line-height: 20px;
+}
+
+#section .books ul li:nth-child(2) {
+    position: absolute;
+    left: 190px;
+    top: 20px;
+}
+
+#section .books ul li:nth-child(2) p {
+    margin-top: 20px;
+}
+
+#section .books ul li:nth-child(2) .layui-btn{
+    margin-top: 10px;
+}
+
+#section .layui-tab-item p#detail{
+    width: 50%;
+    margin-top: 10px;
+    text-indent: 2em;
+    line-height: 30px;
+    font-family: 宋体;
+    padding-bottom: 15px;
+}
+
+#section .layui-tab .layui-tab-item h3{
+    margin-top: 20px;
+    line-height: 40px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+#section .layui-tab .layui-tab-item .ulChapter{
+    height: 80px;
+    padding-bottom: 15px;
+}
+
+#section .layui-tab .layui-tab-item .ulChapter li{
+    width: 33.13%;
+    line-height: 40px;
+    float: left;
+    border-bottom: 1px solid #e6e6e6;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+#section .layui-tab .layui-tab-item .ulChapter li a{
+    cursor: pointer;
+}
+
+

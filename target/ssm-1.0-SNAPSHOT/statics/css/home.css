@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+#header {
+    width: 100%;
+    height: 5%;
+    position: relative;
+    margin-bottom: 30px;
+    background: #c9cba3;
+}
+
+#header .layui-breadcrumb{
+    width: 13%;
+    height: 30px;
+    margin-bottom: 10px;
+    line-height: 35px;
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+}
+
+#header .layui-breadcrumb a{
+    color: white !important;
+}
+
+#section {
+    width: 70%;
+    margin: auto;
+    position: relative;
+}
+
+#section #search {
+    width: 35%;
+    height: 40px;
+    margin-left: 30%;
+    margin-bottom: 5px;
+    position: relative;
+
+}
+
+#section ul.popular {
+    width: 40%;
+    height: 20px;
+    margin-left: 30%;
+    margin-bottom: 20px;
+}
+
+#section .layui-breadcrumb{
+    width: 99.9%;
+    height: 50px;
+    margin-bottom: 10px;
+    line-height: 50px;
+    border: 1px solid #dddddd;
+    display: inline-block;
+}
+
+#section .layui-breadcrumb a{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#section ul.popular li:first-child{
+    color: red;
+}
+
+#section ul.popular li {
+    float: left;
+    font-size: 13px;
+    margin-left: 10px;
+    cursor: pointer;
+
+}
+
+#section #carousel {
+    width: 60%;
+    height: 400px;
+}
+
+
+#section #proclamation{
+    width: 30%;
+    height: 280px;
+    position: absolute;
+    top:146px;
+    right:0;
+    border-right: 1px solid #c9cba3;
+    border-left: 1px solid #c9cba3;
+    border-bottom: 1px solid #c9cba3;
+}
+
+#section #proclamation h3{
+    height: 40px;
+    font-size: 17px;
+    line-height: 40px;
+    border-left: 5px solid #009688;
+    padding-left: 20px;
+    background-color: #f2f2f2
+}
+
+#section #proclamation ul li{
+    height: 29px;
+    padding-left: 20px;
+    line-height: 30px;
+    border-bottom: 1px dashed gray;
+}
+
+
+#section #proclamation ul li:last-child{
+    border-bottom:none;
+}
+
+#section .manType,.womanType{
+    height: 30px;
+    margin-top: 10px;
+    background: #c9cba3;
+}
+
+
+#section #showManBook{
+    height: 400px;
+}
+
+.layui-tab-item .ul {
+    float: left;
+    width: 258.8px;
+    height: 153px;
+    position: relative;
+}
+
+
+
+.layui-tab-item .ul li:nth-child(2) {
+    position: absolute;
+    left: 90px;
+    top: 10px
+}
+
+.layui-tab-item .ul li:nth-child(2) h4{
+    margin-bottom: 10px
+}
+
+.layui-tab-item .ul li p{
+    height: 50px;
+}
+
+.layui-tab-item .ul li:nth-child(2) p{
+    width: 155px;
+    /*margin-bottom: 30px;*/
+    word-wrap:break-word;
+    font-size: 10px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space: normal;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:4;
+}
+
+.layui-tab-item .ul li:nth-child(2) span{
+    font-size: 12px;
+}
+
+.layui-tab-item .ul:nth-child(1), ul:nth-child(2), ul:nth-child(3), ul:nth-child(4) {
+    margin-bottom: 20px;
+}
+
+
+.layui-tab-item .ul li img {
+    width: 80px;
+    height: 130px;
+    margin-top: 11px;
+    cursor: pointer;
+    transition: all 0.6s;
+}
+
+.layui-tab-item .ul li img:hover{
+    transform: scale(0.8);
+
+}

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zch.dao.BookDao">
+
+    <resultMap type="Book" id="bookMap">
+        <result property="bid" column="bid"/>
+        <result property="bookname" column="bookname"/>
+        <result property="bhot" column="bhot"/>
+        <result property="bcreatdate" column="bcreatdate"/>
+        <result property="bpath" column="bpath"/>
+        <result property="bdetail" column="bdetail"/>
+        <result property="bstatus" column="bstatus"/>
+        <result property="bisfree" column="bisfree"/>
+        <result property="bsign" column="bsign"/>
+        <result property="bmpass" column="bmpass"/>
+        <result property="tid" column="tid"/>
+        <association property="user" column="uid" resultMap="com.zch.dao.UserDao.UserMap"></association>
+        <association property="type" column="tid" resultMap="com.zch.dao.TypeDao.TypeMap"></association>
+    </resultMap>
+
+    <!--根据时间分类选八条-->
+    <select id="findBookBydateAndE" resultMap="bookMap">
+        select bid,bookname,bdetail,bpath,unickname from book b,user u where b.uid=u.uid ORDER BY bcreatdate desc LIMIT 8
+    </select>
+
+    <!--前台根据书籍id查询书籍信息-->
+    <select id="findBookById" resultMap="bookMap">
+        select bid,bookname,bdetail,bpath,bmpass,unickname,typename,bstatus,bisfree,bsign from book b,user u,type t where b.uid=u.uid and t.tid=b.tid and bid=#{bid}
+    </select>
+
+    <!--查询书籍是否有章节-->
+    <select id="findBookAndChapt" resultMap="bookMap">
+        SELECT * from book b,`select` s where b.bid=s.bid and b.bid=#{bid}
+    </select>
+
+    <!--后台显示书籍信息-->
+    <select id="query" resultMap="bookMap">
+          select bid,bookname,bmpass,bdetail,bhot,bsign,unickname,typename,bcreatdate,bstatus,bisfree from book b,user u,type t where b.uid=u.uid and t.tid=b.tid order by bid asc
+    </select>
+
+    <!--后台编辑操作-->
+    <select id="queryById" resultMap="bookMap">
+        select bid,bookname,bmpass,bdetail,bhot,bsign,unickname,t.tid,typename,bcreatdate,bstatus,bisfree from book b,user u,type t where b.uid=u.uid and t.tid=b.tid and bid=#{bid}
+    </select>
+
+    <!--删除书籍-->
+    <delete id="delBook">
+        delete from book where bid=#{bid}
+    </delete>
+
+    <!--修改书籍信息-->
+    <update id="updateBook">
+        update book
+        <trim prefix="set" suffixOverrides=",">
+            <if test="bookname!=null and bookname!=''">
+                bookname= #{bookname},
+            </if>
+            <if test="tid!=null">
+                tid = #{tid},
+            </if>
+            <if test="bstatus!=null">
+                bstatus = #{bstatus},
+            </if>
+            <if test="bmpass!=null">
+                bmpass = #{bmpass},
+            </if>
+            <if test="bhot!=null">
+                bhot = #{bhot},
+            </if>
+            <if test="bisfree!=null">
+                bisfree = #{bisfree},
+            </if>
+            <if test="bcreatdate!=null">
+                bcreatdate = #{bcreatdate},
+            </if>
+            <if test="bsign!=null">
+                bsign = #{bsign},
+            </if>
+            <if test="bdetail!=null and bdetail!=''">
+                bdetail = #{bdetail},
+            </if>
+        </trim>
+        where bid=#{bid}
+    </update>
+
+    <!--批量删除-->
+    <delete id="delAll">
+        delete from book where bid in
+        <foreach collection="array" item="item" open="(" separator="," close=")" >
+            #{item}
+        </foreach>
+    </delete>
+
+    <!--添加书籍-->
+    <insert id="addBook">
+        insert into book(`bookname`, `bcreatdate`, `uid`, `bdetail`, `bpath`, `tid`,`bisfree`) values (#{bookname},#{bcreatdate},#{uid},#{bdetail},#{bpath},#{tid},#{bisfree})
+    </insert>
+</mapper>

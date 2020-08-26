@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/aop
+          https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver" id="internalResourceViewResolver">
+        <!--前缀-->
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <!--后缀-->
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <mvc:view-controller path="/" view-name="index"/>
+
+
+    <context:component-scan base-package="com.zch"/>
+
+
+    <mvc:annotation-driven>
+
+        <mvc:message-converters>
+            <bean class="com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter">
+                <property name="features">
+                    <list>
+                        <value>WriteDateUseDateFormat</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+
+    <!-- <mvc:default-servlet-handler/>-->
+
+    <mvc:resources mapping="/statics/**" location="/statics/"/>
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="50000000"></property>
+        <property name="defaultEncoding" value="utf-8"></property>
+    </bean>
+
+
+
+    <!--配置全局性的异常处理-->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <!--配置多个异常的处理页面-->
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.RuntimeException">error</prop>
+                <prop key="java.lang.Exception">error</prop>
+            </props>
+        </property>
+    </bean>
+
+
+
+    <!--拦截器-->
+    <!-- <mvc:interceptors>
+         &lt;!&ndash;配置拦截器&ndash;&gt;
+         <mvc:interceptor>
+             &lt;!&ndash;要拦截的具体方法&ndash;&gt;
+             <mvc:mapping path="/users/*"/>
+             &lt;!&ndash;不要拦截的方法&ndash;&gt;
+          &lt;!&ndash;   <mvc:exclude-mapping path=""/>&ndash;&gt;
+             &lt;!&ndash;配置拦截器对象&ndash;&gt;
+             <bean class="com.zch.controller.interceptor.MyInterceptor"/>
+         </mvc:interceptor>
+     </mvc:interceptors>-->
+</beans>

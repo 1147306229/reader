@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zch.dao.CommentDao">
+
+    <resultMap type="com.zch.entity.Comment" id="CommentMap">
+        <result property="cid" column="cid" jdbcType="INTEGER"/>
+        <result property="content" column="content" jdbcType="VARCHAR"/>
+        <result property="clikes" column="clikes" jdbcType="INTEGER"/>
+        <result property="culikes" column="culikes" jdbcType="INTEGER"/>
+        <result property="cdate" column="cdate" jdbcType="TIMESTAMP"/>
+        <result property="bid" column="bid" jdbcType="INTEGER"/>
+        <association property="user" column="uid" resultMap="com.zch.dao.UserDao.UserMap"></association>
+    </resultMap>
+
+    <!--获取该本书的所有评论信息，以及点赞数等-->
+   <select id="findByCoId" resultMap="CommentMap">
+       select content,cdate,clikes,culikes,cid,uavatar,unickname from comment c,user u where u.uid=c.uid and c.bid=#{bid}
+   </select>
+
+    <!--查询所有评论信息-->
+    <select id="findQuery" resultMap="CommentMap">
+       select content,cdate,clikes,culikes,cid,unickname from comment c,user u where u.uid=c.uid
+    </select>
+    
+    <update id="updateClikes">
+        update comment set clikes=#{clikes} where cid=#{cid}
+    </update>
+
+    <update id="updateCulikes">
+        update comment set culikes=#{culikes} where cid=#{cid}
+    </update>
+
+</mapper>
